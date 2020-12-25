@@ -1,24 +1,23 @@
-import { Colors, BackgroundColors, Gradients } from "Components/Colors"
-
+import {
+  getHeaderBackgroundColor,
+  BackgroundColorType,
+  GradientType,
+} from "Components/Colors"
 interface Props {
   children?: React.ReactNode
   title?: string
   subtitle?: string
-  ThemeType?: Theme
-  backgroundColor?: typeof Gradients | Colors
-}
-
-export enum Theme {
-  LightAlt = "",
+  backgroundColor?: GradientType | BackgroundColorType
 }
 
 export const Card = ({
   children,
   title,
   subtitle,
-  ThemeType,
   backgroundColor,
 }: Props): JSX.Element => {
+  const HeaderBackgroundColor = getHeaderBackgroundColor(backgroundColor)
+
   return (
     <div className="h-60 w-full">
       <div
@@ -29,9 +28,9 @@ export const Card = ({
         {!children && (
           <>
             <div
-              className={`h-20 rounded-t-2xl flex items-center justify-center ${BackgroundColors.PrimaryGreen}`}
+              className={`h-20 rounded-t-2xl flex items-center justify-center ${HeaderBackgroundColor}`}
             >
-              <div className="flex flex-col text-white text-center">
+              <div className={`flex flex-col text-white text-center`}>
                 <h3 className="text-2xl leading-4">{title}</h3>
                 <sub className="text-sm">{subtitle}</sub>
               </div>

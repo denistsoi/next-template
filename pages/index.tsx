@@ -5,9 +5,14 @@ import { Header } from "Components/Header"
 import { Footer } from "Components/Footer"
 import { Headline } from "Components/Headline"
 
-import { Gradients } from "Components/Colors"
+import {
+  Gradients,
+  GradientType,
+  BackgroundColors,
+  BackgroundColorType,
+} from "Components/Colors"
 
-import { Card, Theme } from "Components/Card"
+import { Card } from "Components/Card"
 import { Section, HeroSection } from "Components/Section"
 
 import { StyleType, TextType } from "Components/Utilities"
@@ -58,18 +63,22 @@ export default function Home() {
 
         <Section type={StyleType.Light}>
           <div className="max-w-screen-xl mx-auto grid grid-cols-4 grid-rows-1 gap-4 w-full">
-            {/* card */}
             <Card
-              backgroundColor={Gradients.LightGreen}
+              backgroundColor={Gradients.LightGreen as GradientType}
               title="Hello World"
               subtitle="I am a subtitle"
             />
 
-            {/* card */}
             <Card
-              backgroundColor={Gradients.LightPurple}
+              backgroundColor={Gradients.LightPurple as GradientType}
               title="Hello Title Card"
               subtitle="Hi I am a subtitle"
+            />
+
+            <Card
+              backgroundColor={
+                BackgroundColors.Light.Blue as BackgroundColorType
+              }
             />
           </div>
         </Section>
